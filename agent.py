@@ -10,6 +10,13 @@ from livekit.plugins import (
 load_dotenv(".env.local")
 
 
+# --- ADD THESE DEBUG LINES ---
+google_api_key = os.getenv("GOOGLE_API_KEY")
+print(f"GOOGLE_API_KEY loaded: {google_api_key}")
+if google_api_key is None:
+    print("Warning: GOOGLE_API_KEY is not set!")
+# --- END DEBUG LINES ---
+
 class Assistant(Agent):
     def __init__(self) -> None:
         super().__init__(instructions="You are a helpful voice AI assistant.")
