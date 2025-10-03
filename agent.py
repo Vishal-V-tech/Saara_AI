@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+from prompt import Instruction_behaviour, Instruction_greeting
 from livekit import agents
 from livekit.agents import AgentSession, Agent, RoomInputOptions
 from livekit.plugins import (
@@ -28,7 +29,7 @@ async def entrypoint(ctx: agents.JobContext):
         model="gemini-2.0-flash-exp",
         voice="Puck",
         temperature=0.8,
-        instructions="You are a helpful assistant",
+        instructions=Instruction_behaviour,
     ),
 )
     await session.start(
@@ -41,7 +42,7 @@ async def entrypoint(ctx: agents.JobContext):
     )
 
     await session.generate_reply(
-        instructions="Greet the user and offer your assistance. You should start by speaking in English."
+        instructions=Instruction_greeting
     )
 
 
