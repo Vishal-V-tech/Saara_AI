@@ -7,7 +7,7 @@ from livekit.plugins import (
     noise_cancellation,
 )
 
-load_dotenv(".env.local")
+load_dotenv(".env")
 
 
 # --- ADD THESE DEBUG LINES ---
